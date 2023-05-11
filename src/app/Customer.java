@@ -20,4 +20,8 @@ public class Customer {
 		return name + tier;
 	}
 
+	public int getTier() {
+		return tier;
+	}
+
 }

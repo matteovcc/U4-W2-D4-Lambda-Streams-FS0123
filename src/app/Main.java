@@ -12,17 +12,17 @@ public class Main {
 		Customer c1 = new Customer(1144331, "Matteo Vacca", 2);
 		Customer c2 = new Customer(24133422, "Gigio Gigietti", 1);
 		Customer c3 = new Customer(31234, "Lillo Lilletti", 1);
-		Customer c4 = new Customer(41244, "Pino Pinetti", 3);
+		Customer c4 = new Customer(41244, "Pino Pinetti", 2);
 
 		clienti.add(c1);
 		clienti.add(c2);
 		clienti.add(c3);
 		clienti.add(c4);
 
-//		System.out.println(clienti);
-		for (Customer cliente : clienti) {
-			System.out.println(cliente);
-		}
+////		System.out.println(clienti);
+//		for (Customer cliente : clienti) {
+//			System.out.println(cliente);
+//		}
 
 		List<Product> prodotti = new ArrayList<>();
 		Product p1 = new Product(123, "Harry Potter ", "Books", 12.30);
@@ -38,9 +38,9 @@ public class Main {
 		prodotti.add(p5);
 
 //		System.out.print(prodotti);
-		for (Product prodotto : prodotti) {
-			System.out.println(prodotto);
-		}
+//		for (Product prodotto : prodotti) {
+//			System.out.println(prodotto);
+//		}
 
 		List<Order> ordini = new ArrayList<>();
 
@@ -57,27 +57,30 @@ public class Main {
 		ordini.add(o2);
 		ordini.add(o1);
 
-//		Order o1 = new Order(0, "In corso", 11 / 05 / 2023, prodotti, clienti, 14 / 05 / 2023);
-//		Order o2 = 
-//		Order o3 = 
-//		Order o4 = 
-//
-//		ordini.add(o1);
-//		ordini.add(o2);
-//		ordini.add(o3);
-//		ordini.add(o4);
-
 		// --------EXERCISE 1-------//
+		System.out.println("ESERCIZIO 1");
 		List<Product> libriMaggioreDi100 = prodotti.stream().filter(n -> n.getCategory().equals("Books"))
 				.filter(n -> n.getPrice() > 100).toList();
 		System.out.println("I prodotti di categoria 'Books' e che costano meno di 100 sono: " + libriMaggioreDi100);
 
+		System.out.println("ESERCIZIO 2");
+		// -------EXERCISE2-------//
 		List<Order> orders = ordini.stream().filter(n -> n.getProduct().getCategory().equals("Baby")).toList();
 		System.out.println(orders);
 		// ----------Exercise 3-------//
 
-//		List<Product> prodottiScontati = prodotti.stream().filter(n -> n.getCategory().equals("Boys"))
-//				.forEach(n -> ((n.getPrice() * 10.00) / 100.00));
+		List<Product> prodottiScontati = prodotti.stream().filter(n -> n.getCategory().equals("Boys")).map(p -> {
+			p.setPrice(p.getPrice() * 0.9);
+			return p;
+		}).toList();
+
+		System.out.println(prodottiScontati);
+
+		System.out.println("ESERCIZIO 4");
+		// ----Exercise4-----//
+		List<Order> ordiniTier2 = ordini.stream().filter(n -> n.getCustomer().getTier() == 2).toList();
+
+		System.out.println(ordiniTier2);
 
 	}
 

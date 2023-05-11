@@ -6,6 +6,7 @@ public class Order {
 	private long id;
 	private String status;
 	private LocalDate orderDate;
+
 	private LocalDate deliveryDate;
 	private Product product;
 	private Customer customer;
@@ -19,10 +20,6 @@ public class Order {
 		this.customer = customer;
 		this.setProduct(product);
 
-	}
-
-	public Order(int i, String string, LocalDate today, LocalDate delivery, Customer c1) {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -39,4 +36,27 @@ public class Order {
 		this.product = product;
 	}
 
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public LocalDate getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(LocalDate orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public LocalDate getDeliveryDate() {
+		return deliveryDate;
+	}
+
+	public void setDeliveryDate(LocalDate deliveryDate) {
+		this.deliveryDate = deliveryDate;
+	}
 }
